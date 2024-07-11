@@ -1,0 +1,104 @@
+﻿namespace _420AP1_Midterm_Summative
+
+internal class HardwareProgram {
+    static void Main(string[] args) {
+
+        //attributes
+        string? name = null;
+        string? description = null;
+        int? partNumber = null;
+        decimal? retailPrice = null;
+
+        string menuChoice = "";
+
+        while (menuChoice != "Q") {
+            Console.Clear();
+            Console.WriteLine("*");
+            Console.WriteLine("*");
+            if (name == null) {
+                Console.WriteLine("* A - Set the name");
+            }
+            else {
+                Console.WriteLine("* A - Edit the name");
+            }
+            if (description == null) {
+                Console.WriteLine("* B - Set the description");
+            }
+            else {
+                Console.WriteLine("* B - Edit the description");
+            }
+            if(partNumber == null) {
+                Console.WriteLine("* C - Set the part number");
+            }
+            else {
+                Console.WriteLine("* C - Edit the part number");
+            }
+            if (retailPrice == null) {
+                Console.WriteLine("* D - Set the retail price");
+            }
+            else {
+                Console.WriteLine("* D - Edit the retail price");
+            }
+            Console.WriteLine("*");
+            Console.WriteLine("* E - Display current attributes");
+            Console.WriteLine("*");
+            Console.WriteLine("* Q - Exit program");
+            Console.WriteLine("*");
+            Console.WriteLine("");
+
+            if (menuChoice == "A" ||
+                menuChoice == "B" ||
+                menuChoice == "C" ||
+                menuChoice == "D" ||
+                menuChoice == "E") {
+                
+                // action chosen
+                if(menuChoice == "A") {
+                    Console.Write("Enter the name: ");
+                    name = Console.ReadLine();
+                }
+                else if (menuChoice == "B") {
+                    Console.Write("Enter the description: ");
+                    description = Console.ReadLine();
+                }
+                else if (menuChoice == "C") {
+                    Console.Write("Enter the part number (integer): ");
+                    string partNumberStr = Console.ReadLine();
+                    partNumber = int.Parse(partNumberStr);
+                }
+                else if (menuChoice == "D") {
+                    Console.Write("Enter the retail price (decimal): ");
+                    string retailPriceStr = Console.ReadLine();
+                    retailPrice = decimal.Parse(retailPriceStr);
+                }
+                else {
+                    // 'E' automatically
+                    Console.WriteLine("Current attributes: ");
+                    Console.Write("Name: ");
+                    Console.WriteLine(name);
+                    Console.Write("Description: ");
+                    Console.WriteLine(description);
+                    Console.Write("Part Number: ");
+                    Console.WriteLine(partNumber);
+                    Console.Write("Retail Price: ");
+                    Console.WriteLine(retailPrice);
+                }
+                Console.Write("Data saved! Press any key to continue....");
+                _ = Console.ReadKey();
+            }
+            else if (menuChoice == "Q") {
+
+                // exit chosen
+                Console.WriteLine("Goodbye!");
+            }
+            else {
+
+                // invalid input
+                Console.Write("You have entered an invalid choice.");
+                Console.Write("Press any key to continue....");
+                _ = Console.ReadKey();
+            }
+        }
+    }
+}
+
